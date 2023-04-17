@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-const URL = "https://swapi.dev/api/starships?format=json";//preciso criar uma pasat ultil
+const URL = "https://swapi.dev/api/starships?format=json";//preciso criar uma past ultil
 
 class StarshipsClient {
     async findAll() {

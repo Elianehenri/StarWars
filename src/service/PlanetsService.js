@@ -1,29 +1,34 @@
-import PlanetsClient from "../client/PlanetsClient.js";
+import StarWarsClient from "../client/StarWarsClient.js";
 
 class PlanetsService {
-  async findAll(req) {
+  async findAllPlanets(req) {
     try {
-      let response = await PlanetsClient.findAll();
-      return this.formatResponse(response);
+      let response = await StarWarsClient.findAllPlanets();
+      return this.formatResponsePlanet(response);
     } catch {
       return { results: [] };
     }
   }
 
-  formatResponse(response) {
+  formatResponsePlanet(response) {
     if (response && response.results && response.results.length > 0) {
       return {
-        results: response.results.map((result) => {
-          return {
-            name: result.name,
-            diameter: result.diameter,
-          };
-        })
-        .sort((a, b) => {
+        results: response.results
+          .map((result) => {
+            return {
+              name: result.name,
+              diameter: result.diameter,
+            };
+          })
+          .sort((a, b) => {
             return b.diameter - a.diameter;
-        }),
+          }),
       };
+    } else {
+      return { results: [] };
+     
     }
   }
 }
+
 export default new PlanetsService();

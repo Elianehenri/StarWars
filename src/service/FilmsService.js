@@ -1,10 +1,10 @@
-import FilmsClient from "../client/FilmsClient.js";
+import StarWarsClient from "../client/StarWarsClient.js";
 
 class FilmsService {
-  async findAll(req) {
+  async findAlFilms(req) {
     try {
-      let response = await FilmsClient.findAll();
-      return this.formatResponse(response);
+      let response = await StarWarsClient.findAlFilms();
+      return this.formatResponseFilm(response);
     } catch {
       return { results: [] };
     }
@@ -12,14 +12,14 @@ class FilmsService {
   //buscar por nome
   async findByName(req) {
     try {
-      let response = await FilmsClient.findByName(req.params.title);
-      return this.formatResponse(response);
+      let response = await StarWarsClient.findByName(req.params.title);
+      return this.formatResponseFilm(response);
     } catch {
       return { results: [] };
     }
   }
 //
-  formatResponse(response) {
+  formatResponseFilm(response) {
     if (response && response.results && response.results.length > 0) {
       return {
         results: response.results

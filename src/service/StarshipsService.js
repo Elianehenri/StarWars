@@ -1,17 +1,17 @@
-import StarshipsClient from "../client/StarshipsClient.js";
+import StarWarsClient from "../client/StarWarsClient.js";
 
 
 class StarshipsService {
-    async findAll(req) {
+    async findAllStarships(req) {
         try {
-          let response = await StarshipsClient.findAll();
-          return this.formatResponse(response);
+          let response = await StarWarsClient.findAllStarships();
+          return this.formatResponseStarships(response);
         } catch {
           return { results: [] };
         }
       }
     
-      formatResponse(response) {
+      formatResponseStarships(response) {
         if (response && response.results && response.results.length > 0) {
           return {
             results: response.results

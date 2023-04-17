@@ -1,16 +1,17 @@
-import CharacterClient from "../client/CharacterClient.js";
+import StarWarsClient from "../client/StarWarsClient.js";
 
 class CharacterService {
-  async findAll(req) {
+  
+  async findAllCharacter(req) {
     try {
-      let response = await CharacterClient.findAll();
-      return this.formatResponse(response);
+      let response = await StarWarsClient.findAllCharacter();
+      return this.formatResponseClient(response);
     } catch {
       return { results: [] };
     }
   }
 
-  formatResponse(response) {
+  formatResponseClient(response) {
     if (response && response.results && response.results.length > 0) {
       return {
         results: response.results

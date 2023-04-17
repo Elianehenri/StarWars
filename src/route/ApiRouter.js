@@ -1,8 +1,6 @@
 import { Router } from "express";
-import CharacterController from "../controller/CharacterController.js";
-import PlanetsController from "../controller/PlanetsController.js";
-import StarshipsController from "../controller/StarshipsController.js";
-import FilmsController from "../controller/FilmsController.js";
+
+import StarWarsController from "../controller/StarWarsController.js"
 
 
 const router = new Router();
@@ -16,10 +14,10 @@ router.get("/", (req, res) => {
     });
 });
 
-router.get("/character", CharacterController.findAll);
-router.get("/planets", PlanetsController.findAll );
-router.get("/starships", StarshipsController.findAll);
-router.get("/films", FilmsController.findAll);
-router.get("/films/:title", FilmsController.findByName);
+router.get("/character", StarWarsController.findAllCharacter);
+router.get("/planets", StarWarsController.findAllPlanets);
+router.get("/starships", StarWarsController.findAllStarships);
+router.get("/films", StarWarsController.findAlFilms);
+router.get("/films/:title", StarWarsController.findByName);
 
 export default router;

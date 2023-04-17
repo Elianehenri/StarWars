@@ -1,5 +1,6 @@
 import { Router } from "express";
 import CharacterController from "../controller/CharacterController.js";
+import PlanetsController from "../controller/PlanetsController.js";
 
 
 const router = new Router();
@@ -14,6 +15,6 @@ router.get("/", (req, res) => {
 });
 
 router.get("/character", CharacterController.findAll);
-
+router.get("/planets", PlanetsController.findAll );
 
 export default router;

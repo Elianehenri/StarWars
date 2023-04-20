@@ -3,7 +3,7 @@
 O desafio é criar uma aplicação em Node.js que seja capaz de consumir uma API REST e exibir os resultados na tela.
 A API a ser consumida é a SWAPI https://swapi.dev/, que fornece informações sobre personagens, planetas, naves, filmes e muito mais do universo Star Wars.
 
-Este projeto é uma aplicação Back-End.
+
 
 ## Requisitos
 Utilizar a biblioteca Request para consumir a API REST.
